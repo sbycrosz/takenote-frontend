@@ -1,6 +1,5 @@
-/* Put your CSS here */
-html, body {
-    margin: 20px;
+body {
+  padding-top: 70px;
 }
 
 @keyframes domChanged { from { background: yellow; } }
