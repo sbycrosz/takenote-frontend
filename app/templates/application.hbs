@@ -7,17 +7,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#linkTo 'index' class="navbar-brand"}}
+      {{#link-to 'index' class="navbar-brand"}}
         <i class="fa fa-pencil-square fa-lg"></i>
         Ember App
-      {{/linkTo}}
+      {{/link-to}}
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        {{#linkTo 'index' tagName="li"}}{{#linkTo 'index'}}Home{{/linkTo}}{{/linkTo}}
+        {{#link-to 'index' tagName="li"}}{{#link-to 'index'}}Home{{/link-to}}{{/link-to}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        {{#linkTo 'index' tagName="li"}}{{#linkTo 'index'}}Sign In{{/linkTo}}{{/linkTo}}
+        {{#link-to 'sign_in' tagName="li"}}{{#link-to 'sign_in'}}Sign In{{/link-to}}{{/link-to}}
       </ul>
     </div><!--/.nav-collapse -->
   </div>
