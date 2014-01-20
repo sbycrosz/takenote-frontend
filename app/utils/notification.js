@@ -1,27 +1,29 @@
-var Notification = function(){};
+var Notification = Ember.Object.extend({});
 
-Notification.success = function(message){
-  Notification.showNotification('success', message);
-};
+Notification.reopenClass({
+  success: function(message){
+    this.showNotification('success', message);
+  },
 
-Notification.error = function(message){
-  Notification.showNotification('error', message);
-};
+  error: function(message){
+    this.showNotification('error', message);
+  },
 
-Notification.info = function(message){
-  Notification.showNotification('info', message);
-};
+  info: function(message){
+    this.showNotification('info', message);
+  },
 
-Notification.showNotification = function(type, message){
-  $.pnotify({
-    text: message,
-    type: type,
-    nonblock: true,
-    nonblock_opacity: 0.2,
-    delay: 700, 
-    styling: 'bootstrap3',
-    history: false
-  });
-};
+  showNotification: function(type, message){
+    $.pnotify({
+      text: message,
+      type: type,
+      nonblock: true,
+      nonblock_opacity: 0.2,
+      delay: 700, 
+      styling: 'bootstrap3',
+      history: false
+    });
+  }
+});
 
 export default Notification;
