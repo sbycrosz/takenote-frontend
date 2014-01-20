@@ -13,6 +13,7 @@
     "bootstrap": "3.0.3",
     "font-awesome": "4.0.3",
     "bootswatch": "3.0.3",
+    "jquery.cookie": "1.4.0",
     "pines-notify": "git@github.com:koppor/pnotify.git#2bb772ef84b715235fb1712365c426ac343b22a8"
   },
   "resolutions": {
