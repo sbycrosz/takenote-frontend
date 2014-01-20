@@ -7,3 +7,4 @@
 
 window.ENV.api_host = 'http://localhost:5000';
 window.ENV.api_prefix = '/api/v1';
+window.ENV.debug = true;
