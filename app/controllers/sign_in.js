@@ -1,4 +1,5 @@
 import ajax from "appkit/utils/ajax";
+import notif from "appkit/utils/notification";
 
 export default Ember.Controller.extend(
 {
@@ -14,8 +15,14 @@ export default Ember.Controller.extend(
       var params = this.getProperties('username', 'password');
       var promise = ajax.post('/sign_in', params);
       promise.done(function(result){
+        notif.success('Signed in succesfully');
       });
       promise.fail(function(reason){
+        if (reason.status == 401) {
+          notif.error('Wrong username/password');
+        } else {
+          notif.error('Error #' + reason.status);          
+        }
       });
     }
   }
