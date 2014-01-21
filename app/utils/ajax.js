@@ -21,7 +21,7 @@ Ajax.reopenClass({
 
   authenticated_ajax: function(type, path, params){
     var env = window.ENV;
-    return Ember.$.ajax({
+    return $.ajax({
       url: env.api_host + env.api_prefix + path,
       data: params,
       type: type,
