@@ -1,9 +1,11 @@
-<div class='col-md-2 col-md-offset-3'>
+<div class='col-md-2 col-md-offset-3 text-center'>
   <i class="fa fa-pencil-square big-icon"></i>
 </div>
 <div class='col-md-4'>
-  <span class="alternative-option"> or {{#link-to 'sign_in'}} sign in {{/link-to}} </span>
-  <h4>Create an account</h4> 
+  <h4>
+    Create an account
+    <small> or {{#link-to 'sign_in'}} sign in {{/link-to}} </small>
+  </h4> 
   <form role="form" {{action 'signUp' on='submit'}}>
     <div {{bind-attr class= ":form-group errors.name:has-error"}}>
       {{input type="text" class="form-control" value=name placeholder="Your Name"}}

@@ -3,13 +3,8 @@ body {
 }
 
 i.big-icon {
-  font-size: 200px;
-  margin-top: 10px;
-}
-
-.alternative-option {
-  float: right;
-  margin-top: 10.5px;
+  font-size: 170px;
+  margin-top: 20px;
 }
 
 @keyframes domChanged { from { background: yellow; } }
