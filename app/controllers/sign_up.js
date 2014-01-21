@@ -16,17 +16,30 @@ export default Ember.Controller.extend({
   
   errors: null,
 
+  clearForm: function(){
+    this.set('name', null);
+    this.set('email', null);
+    this.set('password', null);
+    this.set('password_confirmation', null);
+  },
+
+  clearErrors: function(){
+    this.set('errors', null);  
+  },
+
   actions:{
     signUp: function(){
       var _this = this;
       var params = this.getProperties('name', 'email', 'password', 'password_confirmation');
-      this.set('errors', null);
-
+      this.clearErrors();
+      
       var promise = ajax.post('/sign_up', params);
       promise.done(function(result){
         notif.success('Signed up succesfully');
         var appController = _this.get('controllers.application');
         appController.setSession(result);
+
+        _this.clearForm();
         _this.transitionToRoute('index');
       });
       promise.fail(function(reason){

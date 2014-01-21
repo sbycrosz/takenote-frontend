@@ -3,6 +3,7 @@ import notif from "appkit/utils/notification";
 
 export default Ember.Controller.extend({
   needs: "application",
+
   init: function() {
     this._super();
     if (window.ENV.debug){
@@ -10,15 +11,24 @@ export default Ember.Controller.extend({
       this.set('password', 'Password01');
     }
   },
+
+  clearForm: function(){
+    this.set('username', null);
+    this.set('password', null);
+  },
+  
   actions:{
     signIn: function(){
       var _this = this;
       var params = this.getProperties('username', 'password');
       var promise = ajax.post('/sign_in', params);
+
       promise.done(function(result){
         notif.success('Signed in succesfully');
         var appController = _this.get('controllers.application');
         appController.setSession(result);
+
+        _this.clearForm();
         _this.transitionToRoute('index');
       });
       promise.fail(function(reason){
