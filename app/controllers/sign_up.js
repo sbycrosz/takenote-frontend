@@ -21,6 +21,7 @@ export default Ember.Controller.extend({
     this.set('email', null);
     this.set('password', null);
     this.set('password_confirmation', null);
+    this.clearErrors();
   },
 
   clearErrors: function(){
