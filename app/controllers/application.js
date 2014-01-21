@@ -1,6 +1,7 @@
 import User from "appkit/models/user";
 import session from "appkit/utils/session_manager";
 import notif from "appkit/utils/notification";
+import ajax from "appkit/utils/ajax";
 
 export default Ember.Controller.extend({
   session: session,
@@ -19,9 +20,12 @@ export default Ember.Controller.extend({
 
   actions: {    
     signOut: function() {
-      session.deauthenticate();
-      this.transitionToRoute('sign_in');
-      notif.success('Logged Out Successfully');
+      var _this = this;
+      ajax.delete('/sign_out').then(function(result){
+        session.deauthenticate();
+        _this.transitionToRoute('sign_in');
+        notif.success('Logged Out Successfully');
+      });
     }
   }
 });
