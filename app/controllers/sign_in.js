@@ -1,8 +1,8 @@
 import ajax from "appkit/utils/ajax";
 import notif from "appkit/utils/notification";
-import session from "appkit/utils/session_manager";
 
 export default Ember.Controller.extend({
+  needs: "application",
   init: function() {
     this._super();
     if (window.ENV.debug){
@@ -17,7 +17,8 @@ export default Ember.Controller.extend({
       var promise = ajax.post('/sign_in', params);
       promise.done(function(result){
         notif.success('Signed in succesfully');
-        session.authenticate(result.access_token.token);
+        var appController = _this.get('controllers.application');
+        appController.setSession(result);
         _this.transitionToRoute('index');
       });
       promise.fail(function(reason){
