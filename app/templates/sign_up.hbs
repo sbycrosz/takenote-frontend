@@ -1,0 +1,22 @@
+<div class='col-md-2 col-md-offset-3'>
+  <i class="fa fa-pencil-square big-icon"></i>
+</div>
+<div class='col-md-4'>
+  <span class="alternative-option"> or {{#link-to 'sign_in'}} sign in {{/link-to}} </span>
+  <h4>Create an account</h4> 
+  <form role="form" {{action 'signUp' on='submit'}}>
+    <div class="form-group">
+      {{input type="text" class="form-control" value=name placeholder="Your Name"}}
+    </div>
+    <div class="form-group">
+      {{input type="email" class="form-control" value=email placeholder="Your Email Address"}}
+    </div>
+    <div class="form-group">
+      {{input type="password" class="form-control" value=password placeholder="Password"}}
+    </div>
+    <div class="form-group">
+      {{input type="password" class="form-control" value=passwordConfirmation placeholder="Password Confirmation"}}
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>  
+  </form>
+</div>

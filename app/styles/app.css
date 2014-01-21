@@ -2,6 +2,16 @@ body {
   padding-top: 70px;
 }
 
+i.big-icon {
+  font-size: 200px;
+  margin-top: 10px;
+}
+
+.alternative-option {
+  float: right;
+  margin-top: 10.5px;
+}
+
 @keyframes domChanged { from { background: yellow; } }
 @-webkit-keyframes domChanged { from { background: yellow; } }
 .ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }

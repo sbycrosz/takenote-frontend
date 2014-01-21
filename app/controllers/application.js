@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
   actions: {    
     signOut: function() {
       session.deauthenticate();
-      this.transitionToRoute('index');
+      this.transitionToRoute('sign_in');
       notif.success('Logged Out Successfully');
     }
   }

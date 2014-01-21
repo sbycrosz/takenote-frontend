@@ -13,9 +13,11 @@
       {{/link-to}}
     </div>
     <div class="collapse navbar-collapse">
+      {{#if isAuthenticated}}
       <ul class="nav navbar-nav">
         {{#link-to 'index' tagName="li"}}{{#link-to 'index'}}Home{{/link-to}}{{/link-to}}
       </ul>
+      {{/if}}
       <ul class="nav navbar-nav navbar-right">
       {{#if isAuthenticated}}
         <li class="dropdown">
@@ -25,7 +27,8 @@
           </ul>
         </li>
       {{else}}
-        {{#link-to 'sign_in' tagName="li"}}{{#link-to 'sign_in'}}Sign In{{/link-to}}{{/link-to}}
+        <!-- {{#link-to 'sign_up' tagName="li"}}{{#link-to 'sign_up'}}Sign Up{{/link-to}}{{/link-to}} -->
+        <!-- {{#link-to 'sign_in' tagName="li"}}{{#link-to 'sign_in'}}Sign In{{/link-to}}{{/link-to}} -->
       {{/if}}
       </ul>
 
