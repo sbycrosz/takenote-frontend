@@ -1,9 +1,3 @@
-import session from "appkit/utils/session_manager";
+import AuthenticatedRoute from "appkit/routes/authenticated_route";
 
-export default Ember.Route.extend({
-  model: function(){
-    if (!session.isAuthenticated()){
-      this.transitionTo('sign_in');
-    }
-  }
-});
+export default AuthenticatedRoute.extend({});
