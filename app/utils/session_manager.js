@@ -1,5 +1,3 @@
-import ajax from "appkit/utils/ajax";
-
 var SessionManager = Ember.Object.extend({
   init: function() {
     this._super();
@@ -20,7 +18,11 @@ var SessionManager = Ember.Object.extend({
   deauthenticate: function() {
     this.set('accessToken', null);
   },
- 
+
+  getToken: function(){
+    return this.get('accessToken') || window.ENV.client_token;
+  },
+
   accessTokenObserver: function() {
     if (Ember.isEmpty(this.get('accessToken'))) {
       $.removeCookie('accessToken');
@@ -33,6 +35,6 @@ var SessionManager = Ember.Object.extend({
 if (Ember.isEmpty(window.sessionManager)){
   window.sessionManager = SessionManager.create();
 }
-var sessionManager = window.sessionManager;
+var session = window.sessionManager;
 
-export default sessionManager;
+export default session;
