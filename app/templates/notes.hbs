@@ -1,5 +1,11 @@
 <div class='col-sm-3'>
   <div class="panel panel-default">
+    {{#link-to 'notes' class='btn btn-success btn-block'}} 
+      <i class="fa fa-plus fa-lg"></i> New note
+    {{/link-to}}
+  </div>
+
+  <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">
         All notes
@@ -8,8 +14,10 @@
     <div class="list-group">
       {{#each}}
         {{#link-to 'note' this class='list-group-item'}} 
-          {{title}}
-          {{content}}
+          <div class="h5">{{title}}</div>
+          <span class "p">
+            {{excerpt}}
+          </span>
         {{/link-to}}
       {{/each}}
     </div>
