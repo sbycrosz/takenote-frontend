@@ -12,7 +12,7 @@ export default Ember.Route.extend({
   setupController: function(controller, user){
     controller.set('currentUser', user);
   },
-  events: {
+  actions: {
     error: function(reason, transition) {
       if (reason.status === 401){
         notif.error('Your token has expired');
