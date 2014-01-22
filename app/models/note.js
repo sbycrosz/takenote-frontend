@@ -12,7 +12,9 @@ var Note = Ember.Object.extend({
 
   updatedAtRelativeTime: function(){
     var updatedAt = this.get('updated_at');
+    /* jshint ignore:start */ // TODO properly import momentjs
     return moment.unix(updatedAt).fromNow();
+    /* jshint ignore:end*/
   }.property('updated_at')
 });
 
