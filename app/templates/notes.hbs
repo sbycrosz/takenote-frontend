@@ -1,14 +1,14 @@
 <div class='col-sm-3'>
   <div class="panel panel-default">
-    {{#link-to 'notes' class='btn btn-success btn-block'}} 
+    <button class='btn btn-success btn-block' {{action 'createNote'}}>
       <i class="fa fa-plus fa-lg"></i> New note
-    {{/link-to}}
+    </button>
   </div>
 
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">
-        All notes
+        All notes ({{notesCount}})
       </h3>
     </div>
     <div class="list-group">
