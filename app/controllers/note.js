@@ -5,14 +5,15 @@ export default Ember.ObjectController.extend({
   actions: {
     startEditting: function(){
       this.set('isEditting', true);
-      this.set('editedBody', this.get('body'));
-      this.set('editedTitle', this.get('title'));
     },
     doneEditting: function(){
-      notif.showLoading();
-      this.set('isEditting', false);
-      this.set('body', this.get('editedBody'));
-      this.set('title', this.get('editedTitle'));
+      var _this = this;
+      var note = this.get('model');
+      notif.showLoading("Synching...");
+      note.commit().then(function(){
+        notif.hideLoading();
+        _this.set('isEditting', false);      
+      });
     }
   }
 });

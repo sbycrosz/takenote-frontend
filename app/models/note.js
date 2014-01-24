@@ -17,7 +17,18 @@ var Note = Ember.Object.extend({
     /* jshint ignore:start */ // TODO properly import momentjs
     return moment.unix(updatedAt).fromNow();
     /* jshint ignore:end*/
-  }.property('updated_at')
+  }.property('updated_at'),
+
+  commit: function(){
+    var id = this.get('id');
+    var params = this.getProperties('body', 'title');
+    var _this = this;
+
+    return ajax.put('/notes/' + id , params).then(function(response){
+      _this.setProperties(response);
+      return _this;
+    });
+  }
 });
 
 Note.reopenClass({
@@ -33,8 +44,8 @@ Note.reopenClass({
   },
   
   createRecord: function(){
-    var defaultParams = ({title: "New note", body: "Click here to start writing.."});
-    return ajax.post('/notes', defaultParams).then(function(response){
+    var params = ({title: "New note"});
+    return ajax.post('/notes', params).then(function(response){
       var createdNote = Note.create(response);
       storage.pushObject('notes', createdNote);    
       return createdNote;

@@ -13,14 +13,14 @@
 
   <div class= "panel-body" {{action 'startEditting'}}>
     {{#if isEditting}}
-      {{input type="text" value=editedTitle class="h4 note-title" placeholder="Insert note title here..."}}
+      {{input type="text" value=title class="h4 note-title" placeholder="Insert note title here..."}}
     {{else}}
       {{input type="text" value=title class="h4 note-title"}}
     {{/if}}
 
     <hr class="note-title"/>
     {{#if isEditting}}
-      {{view 'autoresizeTextarea' value=editedBody class="form-control" id="editor"}}
+      {{view 'autoresizeTextarea' value=body class="form-control" id="editor"}}
     {{else}}
       {{{body}}}
     {{/if}}

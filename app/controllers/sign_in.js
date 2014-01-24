@@ -21,17 +21,20 @@ export default Ember.Controller.extend({
     signIn: function(){
       var _this = this;
       var params = this.getProperties('username', 'password');
-      var promise = ajax.post('/sign_in', params);
-
-      promise.done(function(result){
+      
+      notif.showLoading();  
+      ajax.post('/sign_in', params).then(function(result){
+        notif.hideLoading();
+        
         notif.success('Signed in succesfully');
         var appController = _this.get('controllers.application');
         appController.setSession(result);
-
+        
         _this.clearForm();
         _this.transitionToRoute('index');
-      });
-      promise.fail(function(reason){
+      }, function(reason){
+        notif.hideLoading();
+
         if (reason.status === 401) {
           notif.error('Wrong username/password');
         } else {
