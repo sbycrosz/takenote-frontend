@@ -6,7 +6,7 @@ export default Ember.TextArea.extend({
   didInsertElement: function(){
     var id = "#" + this.get("elementId");        
     var view = this;
-    tinymce.init({
+    window.tinymce.init({
       selector: id,
       plugins : 'autoresize',
       autoresize_min_height: 400,

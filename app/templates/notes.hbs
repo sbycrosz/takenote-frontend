@@ -16,8 +16,8 @@
         {{#link-to 'note' this class='list-group-item'}} 
           <div class="h5">{{title}}</div>
           <span class "p">
-            <strong>{{updatedAtRelativeTime}}</strong>
-            {{excerpt}}
+            <strong>{{render-time updated_at}}</strong>
+            {{render-excerpt body}}
           </span>
         {{/link-to}}
       {{/each}}

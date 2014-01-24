@@ -5,19 +5,6 @@ var Note = Ember.Object.extend({
   title: null,
   body: null,
   updated_at: null,
-  
-  excerpt: function(){
-    var body = this.get('body');
-    if (!body) { return ""; }
-    return body.substr( 0, body.lastIndexOf( ' ', 50 ) ) + '...';
-  }.property('body'),
-
-  updatedAtRelativeTime: function(){
-    var updatedAt = this.get('updated_at');
-    /* jshint ignore:start */ // TODO properly import momentjs
-    return moment.unix(updatedAt).fromNow();
-    /* jshint ignore:end*/
-  }.property('updated_at'),
 
   commit: function(){
     var id = this.get('id');
