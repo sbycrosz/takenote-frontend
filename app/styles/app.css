@@ -7,6 +7,20 @@ i.big-icon {
   margin-top: 20px;
 }
 
+.note-title {
+  width: 100%;
+  border: none !important;
+}
+
+.container hr.note-title {
+  margin: 2px 0;
+}
+
+#editor {
+  border: none !important;
+  padding: 0px !important;
+}
+
 @keyframes domChanged { from { background: yellow; } }
 @-webkit-keyframes domChanged { from { background: yellow; } }
 .ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }

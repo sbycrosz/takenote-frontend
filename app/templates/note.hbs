@@ -1,10 +1,29 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h4 class="panel-title">
-      {{title}}
-    </h4>
+<div class="panel panel-default" >
+  
+  <div class="panel-heading clearfix" >
+    <small class="pull-left">modified: <span class="text-info">{{updatedAtRelativeTime}}</span></small>
+    <div class="btn-group btn-group-xs pull-right">
+      {{#if isEditting}}
+        <a class="btn btn-success" {{action 'doneEditting'}}><i class="fa fa-check"></i>Done Editting</a>
+      {{/if}}
+      <a class="btn btn-danger" ><i class="fa fa-trash-o"></i> Delete</a>
+    </div>
   </div>
-  <div class="panel-body">
-    {{body}}
+
+
+  <div class= "panel-body" {{action 'startEditting'}}>
+    {{#if isEditting}}
+      {{input type="text" value=editedTitle class="h4 note-title" placeholder="Insert note title here..."}}
+    {{else}}
+      {{input type="text" value=title class="h4 note-title"}}
+    {{/if}}
+
+    <hr class="note-title"/>
+    {{#if isEditting}}
+      {{view 'autoresizeTextarea' value=editedBody class="form-control" id="editor"}}
+    {{else}}
+      {{{body}}}
+    {{/if}}
   </div>
+
 </div>

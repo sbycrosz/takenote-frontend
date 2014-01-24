@@ -10,5 +10,9 @@ export default AuthenticatedRoute.extend({
       notif.error('Not found :(');
       this.transitionTo('index');
     }
+  },
+  setupController: function(controller, model){
+    this._super(controller, model);
+    controller.set('isEditting', false);
   }
 });
