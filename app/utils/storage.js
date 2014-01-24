@@ -3,6 +3,10 @@ if (!window.storage) {
     pushObject: function(property, obj){
       var collections = this.get(property);
       collections.pushObject(obj);
+    },
+    removeObject: function(property, obj){
+      var collections = this.get(property);
+      collections.removeObject(obj);
     }
   });
   window.storage = Storage.create();

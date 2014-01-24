@@ -28,6 +28,14 @@ var Note = Ember.Object.extend({
       _this.setProperties(response);
       return _this;
     });
+  },
+
+  destroyRecord: function(){
+    var id = this.get('id');
+    var _this = this;
+    return ajax.delete('/notes/' + id).then(function(response){
+      storage.removeObject('notes', _this);
+    });
   }
 });
 
