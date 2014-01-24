@@ -1,3 +1,5 @@
+import notif from "appkit/utils/notification";
+
 export default Ember.ObjectController.extend({
   isEditting: false,
   actions: {
@@ -7,6 +9,7 @@ export default Ember.ObjectController.extend({
       this.set('editedTitle', this.get('title'));
     },
     doneEditting: function(){
+      notif.showLoading();
       this.set('isEditting', false);
       this.set('body', this.get('editedBody'));
       this.set('title', this.get('editedTitle'));
