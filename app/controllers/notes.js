@@ -1,5 +1,6 @@
 import Note from 'appkit/models/note';
 import storage from "appkit/utils/storage";
+import notif from "appkit/utils/notification";
 
 export default Ember.ArrayController.extend({
   storage: storage,
@@ -11,9 +12,12 @@ export default Ember.ArrayController.extend({
 
   actions: {
     createNote: function(){
-      var dummyData = {id: 42, title: "Added Note", updated_at: "1390148800", body: "this is a body"};
-      var note = Note.createRecord(dummyData);
-      this.transitionTo('note', note);
+      var _this = this;
+      notif.showLoading();
+      Note.createRecord().then(function(createdNote){
+        notif.hideLoading();
+        _this.transitionTo('note', createdNote);
+      });
     }
   }
 });

@@ -32,10 +32,13 @@ Note.reopenClass({
     });
   },
   
-  createRecord: function(data){
-    var createdNote = Note.create(data);
-    storage.pushObject('notes', createdNote);    
-    return createdNote;
+  createRecord: function(){
+    var defaultParams = ({title: "New note", body: "Click here to start writing.."});
+    return ajax.post('/notes', defaultParams).then(function(response){
+      var createdNote = Note.create(response);
+      storage.pushObject('notes', createdNote);    
+      return createdNote;
+    });
   }
 });
 
