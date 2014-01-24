@@ -3,34 +3,20 @@
   <div class="panel-heading clearfix" >
     <small class="pull-left">modified: <span class="text-info">{{updatedAtRelativeTime}}</span></small>
     <div class="btn-group btn-group-sm pull-right">
-      {{#if isEditting}}
-        <a class="btn btn-success" {{action 'doneEditting'}}><i class="fa fa-check"></i>Done Editting</a>
+      {{#if confirmDeletion}}
+        <span class="btn btn-warning">Delete this note ?</span>
+        <a class="btn btn-danger" {{action 'deleteNote'}}><i class="fa fa-trash-o"></i> Yes</a>
+        <a class="btn btn-success" {{action 'cancelDelete'}}><i class="fa fa-times"></i> No</a>
       {{else}}
-        {{#if confirmDeletion}}
-          <span class="btn btn-warning">Delete this note ?</span>
-          <a class="btn btn-danger" {{action 'deleteNote'}}><i class="fa fa-trash-o"></i> Yes</a>
-          <a class="btn btn-success" {{action 'cancelDelete'}}><i class="fa fa-times"></i> No</a>
-        {{else}}
-          <a class="btn btn-danger" {{action 'confirmDelete'}}><i class="fa fa-trash-o"></i> Delete</a>
-        {{/if}}
+        <a class="btn btn-success" {{action 'doneEditting'}}><i class="fa fa-check"></i> Save</a>
+        <a class="btn btn-danger" {{action 'confirmDelete'}}><i class="fa fa-trash-o"></i> Delete</a>
       {{/if}}
     </div>
   </div>
 
 
-  <div class= "panel-body" {{action 'startEditting'}}>
-    {{#if isEditting}}
-      {{input type="text" value=title class="h4 note-title" placeholder="Insert note title here..."}}
-    {{else}}
-      {{input type="text" value=title class="h4 note-title"}}
-    {{/if}}
-
-    <hr class="note-title"/>
-    {{#if isEditting}}
-      {{view 'autoresizeTextarea' value=body class="form-control" id="editor"}}
-    {{else}}
-      {{{body}}}
-    {{/if}}
+  <div>
+    {{input type="text" value=title class="h4 note-title" placeholder="Insert title..."}}
+    {{view 'tinymce-editor' value=body class="form-control" id="editor"}}
   </div>
-
 </div>

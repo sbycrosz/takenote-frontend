@@ -52,7 +52,7 @@ Note.reopenClass({
   },
   
   createRecord: function(){
-    var params = ({title: "New note"});
+    var params = ({title: "New note", body:""});
     return ajax.post('/notes', params).then(function(response){
       var createdNote = Note.create(response);
       storage.pushObject('notes', createdNote);    

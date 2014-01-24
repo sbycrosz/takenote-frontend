@@ -14,7 +14,6 @@
     "jquery.cookie": "1.4.0",
     "momentjs": "2.5.0",
     "pines-notify": "git@github.com:koppor/pnotify.git#2bb772ef84b715235fb1712365c426ac343b22a8",
-    "jquery-autosize" :"1.18.4"
   },
   "resolutions": {
     "ember": "~1.3.0-beta.4"
