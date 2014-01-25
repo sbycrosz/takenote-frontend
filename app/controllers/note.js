@@ -16,7 +16,9 @@ export default Ember.ObjectController.extend({
     deleteNote: function(){
       var _this = this;
       var note = this.get('model');
+      notif.showLoading();
       note.destroyRecord().then(function(){
+        notif.hideLoading();
         _this.transitionToRoute('index');
         notif.success('Note deleted');
       });
