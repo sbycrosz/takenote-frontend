@@ -20,13 +20,18 @@ Ajax.reopenClass({
   },
 
   authenticated_ajax: function(type, path, params){
+    var wait = $.Deferred();
+    setTimeout(function () { wait.resolve(); }, 500);
+
     var env = window.ENV;
-    return $.ajax({
+    var myRequest = $.ajax({
       url: env.api_host + env.api_prefix + path,
       data: params,
       type: type,
       beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer '+ session.getToken());}
     });
+
+    return wait.then(function(){return myRequest;});
   }
 });
 
