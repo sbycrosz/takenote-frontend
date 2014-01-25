@@ -5,14 +5,23 @@ var Note = Ember.Object.extend({
   title: null,
   body: null,
   updated_at: null,
+  isDirty: false,
+
+  autosave: function(){
+    this.set('isDirty', true);
+    Ember.run.debounce(this, this.commit, 2000);
+  }.observes('body', 'title'),
 
   commit: function(){
     var id = this.get('id');
     var params = this.getProperties('body', 'title');
     var _this = this;
+    this.set('isSaving', true);
 
     return ajax.put('/notes/' + id , params).then(function(response){
-      _this.setProperties(response);
+      _this.set('updated_at', response.updated_at);
+      _this.set('isDirty', false);
+      _this.set('isSaving', false);
       return _this;
     });
   },
