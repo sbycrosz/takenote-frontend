@@ -1,4 +1,4 @@
-import session from "appkit/utils/session_manager";
+import session from "appkit/models/session";
 
 var Ajax = Ember.Object.extend({});
 
@@ -20,17 +20,17 @@ Ajax.reopenClass({
   },
 
   authenticated_ajax: function(type, path, params){
-    var wait = $.Deferred();
-    setTimeout(function () { wait.resolve(); }, 500);
-
+    var accessToken = session.getToken();
     var env = window.ENV;
     var myRequest = $.ajax({
       url: env.api_host + env.api_prefix + path,
       data: params,
       type: type,
-      beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer '+ session.getToken());}
+      beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer '+ accessToken);}
     });
 
+    var wait = $.Deferred();
+    setTimeout(function () { wait.resolve(); }, 300);
     return wait.then(function(){return myRequest;});
   }
 });

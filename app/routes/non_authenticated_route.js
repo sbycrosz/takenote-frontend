@@ -1,8 +1,8 @@
-import session from "appkit/utils/session_manager";
+import session from "appkit/models/session";
 
 export default Ember.Route.extend({
   beforeModel: function(){
-    if (session.isAuthenticated()){
+    if (session.get('isAuthenticated')){
       this.transitionTo('index');
     }
   }

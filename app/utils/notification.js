@@ -33,8 +33,8 @@ Notification.reopenClass({
   hideLoading: function(){
     if (this.isLoading){
       var loadingHUD = this.loadingHUD;
-      this.isLoading = false;
       loadingHUD.pnotify_remove();
+      this.isLoading = false;
     }
   },
 
