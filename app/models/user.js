@@ -1,9 +1,23 @@
 import ajax from "appkit/utils/ajax";
 import storage from "appkit/utils/storage";
+import session from "appkit/models/session";
 
 var User = Ember.Object.extend({
   name: null,
-  email: null
+  email: null,
+
+  signUp: function(){
+    var params = this.serialize();
+    return ajax.post('/sign_up', params)
+      .then(function(result){
+        session.setToken(result.access_token.token);
+        User.setCurrent(result.user);
+      });
+  },
+
+  serialize: function(){
+    return this.getProperties('name', 'email', 'password', 'password_confirmation');
+  }
 });
 
 User.reopenClass({

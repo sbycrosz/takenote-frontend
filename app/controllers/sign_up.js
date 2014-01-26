@@ -1,26 +1,22 @@
+import User from "appkit/models/user";
 import ajax from "appkit/utils/ajax";
 import notif from "appkit/utils/notification";
 
 export default Ember.Controller.extend({
-  needs: "application",
 
   init: function() {
     this._super();
     if (window.ENV.debug){
-      this.set('name', 'Sambya');
-      this.set('email', 'sambya@aryasa.net');
-      this.set('password', 'Password01');
-      this.set('password_confirmation', 'Password01');
+      var dummyUser = User.create({name: 'name', email: 'email@mail.com', password: 'Password01', password_confirmation: 'Password01'});
+      this.set('model', dummyUser);
     }
   },
   
   errors: null,
 
   clearForm: function(){
-    this.set('name', null);
-    this.set('email', null);
-    this.set('password', null);
-    this.set('password_confirmation', null);
+    var emptyUser = User.create({});
+    this.set('model', emptyUser);
     this.clearErrors();
   },
 
@@ -31,19 +27,19 @@ export default Ember.Controller.extend({
   actions:{
     signUp: function(){
       var _this = this;
-      var params = this.getProperties('name', 'email', 'password', 'password_confirmation');
-      this.clearErrors();
+      var user = this.get('model');
       
-      var promise = ajax.post('/sign_up', params);
-      promise.done(function(result){
-        notif.success('Signed up succesfully');
-        var appController = _this.get('controllers.application');
-        appController.setSession(result);
-
+      this.clearErrors();
+      notif.showLoading();
+      
+      user.signUp().then(function(result){
+        notif.hideLoading();
         _this.clearForm();
         _this.transitionToRoute('index');
-      });
-      promise.fail(function(reason){
+        notif.success('Signed up succesfully');
+
+      },function(reason){
+        notif.hideLoading();
         _this.set('errors', reason.responseJSON.error);
       });
     }

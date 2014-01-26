@@ -8,22 +8,22 @@
   </h4> 
   <form role="form" {{action 'signUp' on='submit'}}>
     <div {{bind-attr class= ":form-group errors.name:has-error"}}>
-      {{input type="text" class="form-control" value=name placeholder="Your Name"}}
+      {{input type="text" class="form-control" value=model.name placeholder="Your Name"}}
       <span class="help-block">{{errors.name}}</span>
     </div>
 
     <div {{bind-attr class= ":form-group errors.email:has-error"}}>
-      {{input type="email" class="form-control" value=email placeholder="Your Email Address"}}
+      {{input type="email" class="form-control" value=model.email placeholder="Your Email Address"}}
       <span class="help-block">{{errors.email}}</span>
     </div>
 
     <div {{bind-attr class= ":form-group errors.password:has-error"}}>
-      {{input type="password" class="form-control" value=password placeholder="Password"}}
+      {{input type="password" class="form-control" value=model.password placeholder="Password"}}
       <span class="help-block">{{errors.password}}</span>
     </div>
 
     <div {{bind-attr class= ":form-group errors.password_confirmation:has-error"}}>
-      {{input type="password" class="form-control" value=password_confirmation placeholder="Password Confirmation"}}
+      {{input type="password" class="form-control" value=model.password_confirmation placeholder="Password Confirmation"}}
       <span class="help-block">{{errors.password_confirmation}}</span>
     </div>
     <button type="submit" class="btn btn-primary btn-block">Sign Up</button>  
