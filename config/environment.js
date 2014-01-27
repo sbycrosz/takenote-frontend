@@ -8,4 +8,4 @@
 // window.ENV = {FEATURES: {'with-controller': true}};
 
 window.ENV = {};
-window.ENV.client_token = '370086868c8e3a5adb1b63679eaf802fec5cf839bbd99eaa1e3f14f138d66a96';
+window.ENV.api_prefix = '/api/v1';
