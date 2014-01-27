@@ -27,10 +27,6 @@ div.ui-pnotify-icon span {
   margin-top: 3px;
 }}
 
-@keyframes domChanged { from { background: yellow; } }
-@-webkit-keyframes domChanged { from { background: yellow; } }
-.ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
-
 /* Flat style override for tinyMCE */
 /* Based http://pixabay.com/id/blog/posts/a-modern-custom-theme-for-tinymce-4-40 */
 /* TODO create a theme */

@@ -16,7 +16,7 @@ export default Ember.ArrayController.extend({
       notif.showLoading();
       Note.createRecord().then(function(createdNote){
         notif.hideLoading();
-        _this.transitionTo('note', createdNote);
+        _this.transitionToRoute('note', createdNote);
       });
     }
   }
