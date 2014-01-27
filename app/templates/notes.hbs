@@ -1,0 +1,30 @@
+<div class='col-sm-3'>
+  <div class="panel panel-default">
+    <a class='btn btn-primary btn-block' {{action 'createNote'}}>
+      <i class="fa fa-plus fa-lg"></i> New note
+    </a>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        All notes ({{notesCount}})
+      </h3>
+    </div>
+    <div class="list-group">
+      {{#each}}
+        {{#link-to 'note' this class='list-group-item'}} 
+          <div class="h5">{{title}}</div>
+          <span class "p">
+            <strong>{{render-date updated_at}}</strong>
+            {{render-excerpt body}}
+          </span>
+        {{/link-to}}
+      {{/each}}
+    </div>
+  </div>
+
+</div>
+<div class='col-sm-9'>
+  {{outlet}}
+</div>

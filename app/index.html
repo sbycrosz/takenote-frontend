@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>App</title>
+  <title>Ember Note</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- build:css(tmp/result) /assets/app.min.css -->
   <link rel="stylesheet" href="/assets/app.css">
+  <link href="/vendor/bootswatch/flatly/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/pines-notify/jquery.pnotify.default.css" rel="stylesheet"/>
+  <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
   <!-- endbuild -->
 
   <!-- for more details visit: https://github.com/yeoman/grunt-usemin -->
@@ -32,7 +35,7 @@
 
   <!-- build:js(tmp/result) /assets/vendor.min.js -->
 
-    <script src="/vendor/jquery/jquery.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
 
     <!-- @if dist=false -->
     <script src="/vendor/handlebars/handlebars.js"></script>
@@ -42,12 +45,18 @@
     <script src="/vendor/ember/ember.prod.js"></script>
     <!-- @endif -->
 
-    <script src="/vendor/ember-data/ember-data.js"></script>
     <script src="/vendor/loader.js"></script>
     <script src="/vendor/ember-resolver/dist/ember-resolver.js"></script>
-    <script src="/vendor/ic-ajax/main.js"></script>
 
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/vendor/pines-notify/jquery.pnotify.min.js"></script>
+    <script src="/vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="/vendor/momentjs/min/moment.min.js"></script>
+  
   <!-- endbuild -->
+
+    <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 
   <!-- build:js(tmp/result) /assets/app.min.js -->
 

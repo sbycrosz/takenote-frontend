@@ -1,0 +1,19 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/sambya/projects/sample-code/ember-app-kit",
+			"folder_exclude_patterns":
+				[		
+				"node_modules",
+				"vendor",
+				"tmp", 
+				"tasks"
+				],
+			"file_exclude_patterns":
+				[
+				"*.sublime-workspace"
+				]
+		}
+	]
+}

@@ -8,3 +8,4 @@
 // window.ENV = {FEATURES: {'with-controller': true}};
 
 window.ENV = {};
+window.ENV.api_prefix = '/api/v1';

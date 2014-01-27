@@ -1,14 +1,19 @@
 {
-  "name": "ember-app-kit",
+  "name": "takenote-frontend",
+  "version": "0.0.0",
   "dependencies": {
     "handlebars": "~1.1.2",
-    "jquery": "~1.9.1",
+    "jquery": "2.0.3",
     "qunit": "~1.12.0",
     "ember": "~1.3.0-beta.4",
-    "ember-data": "~1.0.0-beta.4",
     "ember-resolver": "git://github.com/stefanpenner/ember-jj-abrams-resolver.git#master",
-    "ic-ajax": "~0.2",
-    "ember-testing-httpRespond": "~0.1.1"
+    "ember-testing-httpRespond": "~0.1.1",
+    "bootstrap": "3.0.3",
+    "font-awesome": "4.0.3",
+    "bootswatch": "3.0.3",
+    "jquery.cookie": "1.4.0",
+    "momentjs": "2.5.0",
+    "pines-notify": "git@github.com:koppor/pnotify.git#2bb772ef84b715235fb1712365c426ac343b22a8"
   },
   "resolutions": {
     "ember": "~1.3.0-beta.4"
