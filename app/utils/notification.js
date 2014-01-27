@@ -2,15 +2,15 @@ var Notification = Ember.Object.extend({});
 
 Notification.reopenClass({
   success: function(message){
-    this.showNotification('success', message);
+    this.showNotification('success', message, 'fa fa-check-circle fa-lg');
   },
 
   error: function(message){
-    this.showNotification('error', message);
+    this.showNotification('error', message, 'fa fa-times-circle fa-lg');
   },
 
   info: function(message){
-    this.showNotification('info', message);
+    this.showNotification('info', message, 'fa fa-exclamation-circle fa-lg');
   },
 
   showLoading: function(message){
@@ -38,7 +38,7 @@ Notification.reopenClass({
     }
   },
 
-  showNotification: function(type, message){
+  showNotification: function(type, message, icon){
     $.pnotify({
       text: message,
       type: type,
@@ -46,7 +46,8 @@ Notification.reopenClass({
       nonblock_opacity: 0.2,
       delay: 700, 
       styling: 'bootstrap3',
-      history: false
+      history: false,
+      icon: icon
     });
   }
 });
