@@ -8,9 +8,10 @@ export default Ember.TextArea.extend({
     var view = this;
     window.tinymce.init({
       selector: id,
-      plugins : 'autoresize',
       autoresize_min_height: 400,
       autoresize_max_height: 800,
+      plugins: ["autoresize autolink link image searchreplace"],
+      toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
       menubar:false,
       statusbar: false,
       setup : function(ed) {                
@@ -19,6 +20,9 @@ export default Ember.TextArea.extend({
           view.suspendValueChange(function() {
           view.set("value", ed.getContent());
           });
+        });
+        ed.on("init", function(){
+          ed.getBody().style.fontSize = "16px";
         });
       }
     });
@@ -37,6 +41,6 @@ export default Ember.TextArea.extend({
   }.observes("value"),
 
   willClearRender: function() {        
-      this.get("editor").remove();
+    this.get("editor").remove();
   }
 });
