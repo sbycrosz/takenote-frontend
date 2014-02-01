@@ -6,6 +6,7 @@ Router.map(function() {
 
   this.resource('notes', function(){
     this.resource('note', {path: '/:id'});
+    this.resource('first');
   });
 });
 

@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
       SessionManager.authenticate(params).then(function(result){
         notif.hideLoading();
         _this.clearForm();
-        _this.transitionToRoute('index');
+        _this.transitionToRoute('first');
         notif.success('Signed in succesfully');
       }, function(reason){
         notif.hideLoading();

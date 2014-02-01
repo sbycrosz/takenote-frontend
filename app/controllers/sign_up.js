@@ -35,7 +35,7 @@ export default Ember.Controller.extend({
       user.signUp().then(function(result){
         notif.hideLoading();
         _this.clearForm();
-        _this.transitionToRoute('index');
+        _this.transitionToRoute('first');
         notif.success('Signed up succesfully');
 
       },function(reason){

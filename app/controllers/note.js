@@ -19,7 +19,7 @@ export default Ember.ObjectController.extend({
       notif.showLoading();
       note.destroyRecord().then(function(){
         notif.hideLoading();
-        _this.transitionToRoute('index');
+        _this.transitionToRoute('first');
         notif.success('Note deleted');
       });
     }
