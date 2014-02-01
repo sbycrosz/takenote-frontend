@@ -4,7 +4,7 @@ import notif from "appkit/utils/notification";
 
 export default Ember.ArrayController.extend({
   storage: storage,
-  sortProperties: ['updated_at', 'title'],
+  sortProperties: ['updated_at', 'id', 'title'],
   sortAscending: false,
 
   modelBinding: Ember.Binding.oneWay("storage.notes"),
