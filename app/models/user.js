@@ -5,6 +5,7 @@ import session from "appkit/models/session";
 var User = Ember.Object.extend({
   name: null,
   email: null,
+  guest: false,
 
   signUp: function(){
     var params = this.serialize();
@@ -30,12 +31,22 @@ User.reopenClass({
       return currentUser;
     });
   },
+
   setCurrent: function(data) {
     var currentUser = User.create(data);
     storage.set('currentUser', data);
   },
+
   clearCurrent: function(){
     this.setCurrent(null);
+  },
+
+  guestSignIn: function(){
+    return ajax.post('/guest_sign_in')
+      .then(function(result){
+        session.setToken(result.access_token.token);
+        User.setCurrent(result.user);
+      });
   }
 });
 

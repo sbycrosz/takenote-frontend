@@ -1,5 +1,6 @@
 import SessionManager from "appkit/models/session_manager";
 import notif from "appkit/utils/notification";
+import User from "appkit/models/user";
 
 export default Ember.Controller.extend({
   init: function() {
@@ -33,6 +34,21 @@ export default Ember.Controller.extend({
         } else {
           notif.error('Error #' + reason.status);          
         }
+      });
+    },
+
+    guestSignIn: function(){
+      var _this = this;
+
+      notif.showLoading();      
+      User.guestSignIn().then(function(result){
+        notif.hideLoading();
+        _this.clearForm();
+        _this.transitionToRoute('first');
+        notif.success('Signed up succesfully');
+
+      },function(reason){
+        notif.hideLoading();
       });
     }
   }
