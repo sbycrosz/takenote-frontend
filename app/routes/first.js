@@ -3,7 +3,7 @@ import notif from "appkit/utils/notification";
 
 export default AuthenticatedRoute.extend({
   model: function(params){
-    return this.modelFor('notes').get('lastObject');
+    return this.modelFor('notes').get('firstObject');
   },
   afterModel: function(model, transition) {
     if (model){
