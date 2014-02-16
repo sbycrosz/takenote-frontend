@@ -1,4 +1,4 @@
-== EmberNote Backend
+== EmberNote
 EmberNote is a web application designed for note-taking (think Evernote) built using Ruby on Rails (backend) and EmberJS (frontend) in 2014.  
 
 The frontend code is built with EmberJS without using Ember Data on top of {Ember App kit}[https://github.com/stefanpenner/ember-app-kit]  
