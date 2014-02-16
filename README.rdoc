@@ -1,0 +1,27 @@
+== EmberNote Backend
+EmberNote is a web application designed for note-taking (think Evernote) built using Ruby on Rails (backend) and EmberJS (frontend) in 2014.  
+
+The frontend code is built with EmberJS without using Ember Data on top of {Ember App kit}[https://github.com/stefanpenner/ember-app-kit]  
+
+This repository contains only the frontend (EmberJS) code. Interested in the backend? see the {backend repository}[https://github.com/sbycrosz/takenote-backend] 
+
+=== Features
+1. Nice looking single page application (thanks EmberJS)
+2. Nice WYSIWYG editor (thanks tinyMCE)
+3. Well tested backend (thanks RSpec)
+4. Well documented APIs (thanks Apiary)
+
+=== Demo Site
+
+http://embernote.herokuapp.com/
+
+=== Installation
+
+Clone this repository  
+Install the dependencies    
+ $ bower install
+Run the server
+ $ grunt server
+
+=== TODO
+-  learn how to test EmberJS app
