@@ -16,7 +16,14 @@
       <ul class="nav navbar-nav navbar-right">
       {{#if isAuthenticated}}
         <li class="dropdown">
-          <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{currentUser.name}}<b class="caret"></b></a>
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+              {{#if currentUser.guest}}
+                Guest#{{currentUser.id}}
+              {{else}}
+                {{currentUser.name}}
+              {{/if}}
+              <b class="caret"></b>
+          </a>
           <ul class="dropdown-menu">
             <li><a href="#" {{action 'signOut'}}>Sign Out</a></li>
           </ul>
